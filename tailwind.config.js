@@ -7,7 +7,8 @@ module.exports = {
         'dancing' : ['Dancing Script'],
         'kaushan' : ['Kaushan Script'] ,
         'indie' : ['Indie Flower'],
-        'merrie' : ['Merriweather']
+        'merrie' : ['Merriweather'],
+        'roboto' : ['Roboto'],
     }
     },
   },
