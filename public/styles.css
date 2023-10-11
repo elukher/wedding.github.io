@@ -583,8 +583,8 @@ video {
   margin-bottom: 2.5rem;
 }
 
-.mt-3{
-  margin-top: 0.75rem;
+.mt-1{
+  margin-top: 0.25rem;
 }
 
 .mt-5{
@@ -722,23 +722,9 @@ video {
   line-height: 1.75rem;
 }
 
-.text-xs{
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
-.font-bold{
-  font-weight: 700;
-}
-
 .text-blue-300{
   --tw-text-opacity: 1;
   color: rgb(147 197 253 / var(--tw-text-opacity));
-}
-
-.text-gray-600{
-  --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
 .text-gray-700{

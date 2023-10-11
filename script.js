@@ -8,22 +8,44 @@ const images = [
 const slideshow = document.getElementById('slideshow');
 let currentIndex = 0;
 
-function changeImage() {
-  currentIndex = (currentIndex + 1) % images.length;
-  const nextImage = new Image();
-  nextImage.src = images[currentIndex];
+// Function to manually change images
+function changeImage(index) {
+  if (index >= 0 && index < images.length) {
+      slideshow.src = images[index];
+      currentIndex = index;
+  }
+}
 
-  nextImage.onload = () => {
-      slideshow.style.opacity = 0; // Fade out the current image
-      setTimeout(() => {
-          slideshow.src = nextImage.src; // Change the source to the next image
-          slideshow.style.opacity = 1; // Fade in the new image
-      }, 500); // Transition duration (in milliseconds)
-  };
+// Function to handle swipe gestures
+function handleSwipe(e) {
+  const threshold = 50; // Minimum horizontal distance to detect a swipe
+
+  let startX = 0;
+  let endX = 0;
+
+  function touchStart(e) {
+      startX = e.touches[0].clientX;
+  }
+
+  function touchEnd(e) {
+      endX = e.changedTouches[0].clientX;
+      const deltaX = endX - startX;
+
+      if (deltaX > threshold) {
+          // Swipe right, move to the previous image
+          changeImage(currentIndex - 1);
+      } else if (deltaX < -threshold) {
+          // Swipe left, move to the next image
+          changeImage(currentIndex + 1);
+      }
+  }
+
+  slideshow.addEventListener('touchstart', touchStart);
+  slideshow.addEventListener('touchend', touchEnd);
 }
 
 // Initial image change
-changeImage();
+changeImage(currentIndex);
 
-// Set an interval to change images at a specific interval
-setInterval(changeImage, 10000); // Change image every 10 seconds (10000 milliseconds)
+// Set up swipe gesture handling
+handleSwipe();
