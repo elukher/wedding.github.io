@@ -9,41 +9,11 @@ const slideshow = document.getElementById('slideshow');
 let currentIndex = 0;
 let timer;
 
-// Function to manually change images
-function changeImage(index) {
-  if (index >= 0 && index < images.length) {
-      slideshow.src = images[index];
-      currentIndex = index;
-      resetTimer(); // Reset the timer when manually changing images
-  }
-}
-
-// Function to handle swipe gestures
-function handleSwipe(e) {
-  const threshold = 50; // Minimum horizontal distance to detect a swipe
-
-  let startX = 0;
-  let endX = 0;
-
-  function touchStart(e) {
-      startX = e.touches[0].clientX;
-  }
-
-  function touchEnd(e) {
-      endX = e.changedTouches[0].clientX;
-      const deltaX = endX - startX;
-
-      if (deltaX > threshold) {
-          // Swipe right, move to the previous image
-          changeImage(currentIndex - 1);
-      } else if (deltaX < -threshold) {
-          // Swipe left, move to the next image
-          changeImage(currentIndex + 1);
-      }
-  }
-
-  slideshow.addEventListener('touchstart', touchStart);
-  slideshow.addEventListener('touchend', touchEnd);
+// Function to change images on tap (click)
+function changeImageOnClick() {
+  currentIndex = (currentIndex + 1) % images.length;
+  slideshow.src = images[currentIndex];
+  resetTimer(); // Reset the timer when changing images on tap
 }
 
 // Function to automatically change images every 30 seconds
@@ -59,8 +29,8 @@ function resetTimer() {
 }
 
 // Initial image change and timer setup
-changeImage(currentIndex);
+changeImageOnClick();
 resetTimer();
 
-// Set up swipe gesture handling
-handleSwipe();
+// Add a click event listener to change images on tap
+slideshow.addEventListener('click', changeImageOnClick);
