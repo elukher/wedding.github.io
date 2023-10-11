@@ -7,12 +7,14 @@ const images = [
 
 const slideshow = document.getElementById('slideshow');
 let currentIndex = 0;
+let timer;
 
 // Function to manually change images
 function changeImage(index) {
   if (index >= 0 && index < images.length) {
       slideshow.src = images[index];
       currentIndex = index;
+      resetTimer(); // Reset the timer when manually changing images
   }
 }
 
@@ -44,8 +46,21 @@ function handleSwipe(e) {
   slideshow.addEventListener('touchend', touchEnd);
 }
 
-// Initial image change
+// Function to automatically change images every 30 seconds
+function autoChangeImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  slideshow.src = images[currentIndex];
+}
+
+// Function to reset the timer
+function resetTimer() {
+  clearInterval(timer);
+  timer = setInterval(autoChangeImage, 30000); // 30 seconds (30000 milliseconds)
+}
+
+// Initial image change and timer setup
 changeImage(currentIndex);
+resetTimer();
 
 // Set up swipe gesture handling
 handleSwipe();
