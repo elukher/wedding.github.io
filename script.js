@@ -2,7 +2,9 @@ const images = [
   'public/img/IMG_0970.jpg',
   'public/img/IMG_1117.jpg',
   'public/img/IMG_1296.jpg',
-  'public/img/IMG_2653.jpg'
+  'public/img/IMG_2653.jpg',
+  'public/img/IMG_1055.jpg',
+  'public/img/IMG_2807.jpg'
 ];
 
 const slideshow = document.getElementById('slideshow');
