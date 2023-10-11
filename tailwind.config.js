@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["index.html","src/script.js"],
+  content: ["index.html","script.js"],
   theme: {
     extend: {
       fontFamily: {
@@ -9,6 +9,7 @@ module.exports = {
         'indie' : ['Indie Flower'],
         'merrie' : ['Merriweather'],
         'roboto' : ['Roboto'],
+        'tangerine' : ['Tangerine'],
     }
     },
   },
