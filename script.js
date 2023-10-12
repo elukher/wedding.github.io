@@ -8,6 +8,8 @@ const images = [
 ];
 
 const slideshow = document.getElementById('slideshow');
+const upButton = document.getElementById('upButton');
+const downButton = document.getElementById('downButton');
 let currentIndex = 0;
 let timer;
 
@@ -16,6 +18,20 @@ function changeImageOnClick() {
   currentIndex = (currentIndex + 1) % images.length;
   slideshow.src = images[currentIndex];
   resetTimer(); // Reset the timer when changing images on tap
+}
+
+// Function to change images upwards (up)
+function changeImageUp() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  slideshow.src = images[currentIndex];
+  resetTimer();
+}
+
+// Function to change images downwards (down)
+function changeImageDown() {
+  currentIndex = (currentIndex + 1) % images.length;
+  slideshow.src = images[currentIndex];
+  resetTimer();
 }
 
 // Function to automatically change images every 30 seconds
@@ -34,5 +50,7 @@ function resetTimer() {
 changeImageOnClick();
 resetTimer();
 
-// Add a click event listener to change images on tap
+// Add click event listeners to change images on tap and to the buttons
 slideshow.addEventListener('click', changeImageOnClick);
+upButton.addEventListener('click', changeImageUp);
+downButton.addEventListener('click', changeImageDown);
