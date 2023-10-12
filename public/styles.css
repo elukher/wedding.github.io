@@ -549,16 +549,8 @@ video {
   left: -1.5rem;
 }
 
-.-left-7{
-  left: -1.75rem;
-}
-
 .-right-6{
   right: -1.5rem;
-}
-
-.-right-7{
-  right: -1.75rem;
 }
 
 .-top-6{
@@ -571,6 +563,14 @@ video {
 
 .top-0{
   top: 0px;
+}
+
+.z-20{
+  z-index: 20;
+}
+
+.z-40{
+  z-index: 40;
 }
 
 .z-50{
@@ -716,8 +716,8 @@ video {
   padding-bottom: 1rem;
 }
 
-.font-merrie{
-  font-family: Merriweather;
+.font-roboto{
+  font-family: Roboto;
 }
 
 .font-tangerine{
